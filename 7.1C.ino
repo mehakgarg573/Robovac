@@ -1,9 +1,9 @@
-char t;
+char m;
  
 void setup() {
-pinMode(11,OUTPUT);   //left motors forward
-pinMode(12,OUTPUT);   //left motors reverse
-pinMode(13,OUTPUT);   //right motors forward
+pinMode(7,OUTPUT);   //left motors forward
+pinMode(8,OUTPUT);   //left motors reverse
+pinMode(9,OUTPUT);   //right motors forward
 pinMode(10,OUTPUT);   //right motors reverse 
 Serial.begin(9600);
  
@@ -11,34 +11,33 @@ Serial.begin(9600);
  
 void loop() {
 if(Serial.available()){
-  t = Serial.read();
-  Serial.println(t);
+  m = Serial.read();
+  Serial.println(m);
 }
  
-if(t == 'F'){            //move forward(all motors rotate in forward direction)
-  digitalWrite(13,HIGH);
-  digitalWrite(11,HIGH);
+if(m == 'F'){            //move forward(all motors rotate in forward direction)
+  digitalWrite(9,HIGH);
+  digitalWrite(7,HIGH);
 }
  
-else if(t == 'B'){      //move reverse (all motors rotate in reverse direction)
-  digitalWrite(12,HIGH);
+else if(m == 'B'){      //move reverse (all motors rotate in reverse direction)
+  digitalWrite(8,HIGH);
   digitalWrite(10,HIGH);
 }
  
-else if(t == 'L'){      
-  digitalWrite(13,HIGH);//turn left (right side motors rotate in forward direction, left side motors doesn't rotate)
+else if(m == 'L'){      
+  digitalWrite(9,HIGH);   //turn left (right side motors rotate in forward direction, left side motors doesn't rotate)
 }
  
-else if(t == 'R'){      //turn right (left side motors rotate in forward direction, right side motors doesn't rotate)
-  digitalWrite(11,HIGH);
+else if(m == 'R'){      //turn right (left side motors rotate in forward direction, right side motors doesn't rotate)
+  digitalWrite(7,HIGH);
 }
 
 
- 
-else if(t == 'S'){      //STOP (all motors stop)
-  digitalWrite(13,LOW);
-  digitalWrite(12,LOW);
-  digitalWrite(11,LOW);
+else if(m == 'S'){      //STOP (all motors stop)
+  digitalWrite(9,LOW);
+  digitalWrite(8,LOW);
+  digitalWrite(7,LOW);
   digitalWrite(10,LOW);
 }
 
