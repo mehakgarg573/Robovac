@@ -26,15 +26,15 @@ else if(m == 'B'){      //move reverse (all motors rotate in reverse direction)
 }
  
 else if(m == 'L'){      
-  digitalWrite(9,HIGH);   //turn left (right side motors rotate in forward direction, left side motors doesn't rotate)
+  digitalWrite(9,HIGH);   //turn left (right side motors rotate in forward direction while left side motors don't rotate)
 }
  
-else if(m == 'R'){      //turn right (left side motors rotate in forward direction, right side motors doesn't rotate)
+else if(m == 'R'){      //turn right (left side motors rotate in forward direction while right side motors don't rotate)
   digitalWrite(7,HIGH);
 }
 
 
-else if(m == 'S'){      //STOP (all motors stop)
+else if(m == 'S'){      // stops all motors
   digitalWrite(9,LOW);
   digitalWrite(8,LOW);
   digitalWrite(7,LOW);
